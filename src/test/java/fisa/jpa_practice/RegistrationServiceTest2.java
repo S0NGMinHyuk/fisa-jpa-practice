@@ -16,7 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 @Transactional // 테스트 완료 후 데이터를 롤백하여 DB를 깨끗하게 유지합니다.
-class RegistrationServiceTest {
+class RegistrationServiceTest2 {
 
     @Autowired
     private RegistrationService registrationService;
