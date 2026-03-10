@@ -1,6 +1,7 @@
 package fisa.jpa_practice;
 
 import fisa.jpa_practice.model.Registration;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,5 +22,11 @@ public class RegistrationController {
         }catch (IllegalStateException e) {
             return e.getMessage();
         }
+    }
+
+    @GetMapping("/registered")
+    public List<RegistrationDTO> getRegistrations(@RequestParam int studentId) {
+        List<RegistrationDTO> registrations = registrationService.findByStudentId(studentId);
+        return registrations;
     }
 }
