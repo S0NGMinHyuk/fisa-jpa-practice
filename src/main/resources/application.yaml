@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    include: db  # application-db.yml을 포함하겠다는 뜻입니다.
+
+  application:
+    name: jpa-practice
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
