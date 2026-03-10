@@ -12,10 +12,14 @@ public class RegistrationController {
     private final RegistrationService registrationService;
 
     @PostMapping("/{lectureId}")
-    public int register(@PathVariable int lectureId, @RequestParam int studentId) {
+    public Object register(@PathVariable int lectureId, @RequestParam int studentId) {
 
-        Registration registration = registrationService.register(studentId, lectureId);
+        try {
+            Registration registration = registrationService.register(studentId, lectureId);
 
-        return registration.getId();
+            return registration.getId();
+        }catch (IllegalStateException e) {
+            return e.getMessage();
+        }
     }
 }
